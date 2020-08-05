@@ -1,5 +1,5 @@
 // @ts-check
-const newman = require('C:/Users/Geovanny/AppData/Roaming/npm/node_modules/newman'),
+const newman = require('./npm/node_modules/newman'),
 	  fs = require('fs');
 
 var myArgs = process.argv.slice(2);
