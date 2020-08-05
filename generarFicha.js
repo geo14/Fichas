@@ -9,8 +9,8 @@ var finalDate = todayDate.getDate() + '_' + (todayDate.getMonth() + 1);
 var fileName = './responses/response' + myArgs[0] + '_' + finalDate + '.html';
 
 newman.run({
-	collection: require('./ObtenerFicha' + myArgs[0] + '.postman_collection.json'),
-	environment: require('./Fichas' + myArgs[0] + '.postman_environment.json'),
+	collection: require('./Collections/ObtenerFicha' + myArgs[0] + '.postman_collection.json'),
+	environment: require('./Fichas/Fichas' + myArgs[0] + '.postman_environment.json'),
 	reporters: 'cli',
 	timeout: 999999999,
 	timeoutScript: 999999999
