@@ -1,0 +1,116 @@
+{
+	"id": "349e697c-7460-4e53-8ad3-7c284e9038e4",
+	"name": "ObtenerFicha",
+	"description": "",
+	"auth": null,
+	"events": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "61cfa738-0828-4511-8ea5-d9d5588716c7",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "59edf6e2-bc24-4f94-841f-f583370314da",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variables": [],
+	"order": [
+		"d69002b1-94dc-4017-b3eb-5f220fc06756",
+		"0bf7464f-982d-4651-9a57-bfc344c3b8bf",
+		"a711e466-967c-4da0-b689-0c275cd22263"
+	],
+	"folders_order": [],
+	"protocolProfileBehavior": {},
+	"folders": [],
+	"requests": [
+		{
+			"id": "0bf7464f-982d-4651-9a57-bfc344c3b8bf",
+			"name": "login",
+			"url": "https://www.fichascr.com/VerificaIngreso.php",
+			"description": "",
+			"data": [
+				{
+					"key": "txtEmail",
+					"value": "{{correo}}",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "txtClave",
+					"value": "{{clave}}",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataOptions": null,
+			"dataMode": "params",
+			"headerData": [],
+			"method": "POST",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [],
+			"folder": null,
+			"headers": "",
+			"pathVariables": {}
+		},
+		{
+			"id": "a711e466-967c-4da0-b689-0c275cd22263",
+			"name": "generarFicha",
+			"url": "https://www.fichascr.com/GeneraFichas.php",
+			"description": "",
+			"data": null,
+			"dataOptions": null,
+			"dataMode": null,
+			"headerData": [],
+			"method": "GET",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [],
+			"folder": null,
+			"headers": "",
+			"pathVariables": {}
+		},
+		{
+			"id": "d69002b1-94dc-4017-b3eb-5f220fc06756",
+			"name": "asignarTienda",
+			"url": "https://www.fichascr.com/GeneradorFichas.php?CodTienda={{tienda}}",
+			"description": "",
+			"data": null,
+			"dataOptions": null,
+			"dataMode": null,
+			"headerData": [],
+			"method": "GET",
+			"pathVariableData": [],
+			"queryParams": [
+				{
+					"key": "CodTienda",
+					"value": "{{tienda}}",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				}
+			],
+			"auth": null,
+			"events": [],
+			"folder": null,
+			"headers": "",
+			"pathVariables": {}
+		}
+	]
+}
