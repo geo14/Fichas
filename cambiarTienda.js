@@ -1,17 +1,52 @@
 // @ts-check
 const fs = require('fs');
+const execFileSync = require('child_process');
 
 var myArgs = process.argv.slice(2);
+var directoryPath = './Fichas';
 
-function getPositions() {
-	fs.readFile(fileName, (err, data) => {
+fs.readdir(directoryPath, function (err, files) {
+    //handling error
+    if (err) {
+        return console.log('Unable to scan directory: ' + err);
+    } 
+    //listing all files using forEach
+    files.forEach(function (file) {
+		modifyFile('./Fichas/' + file);
+    });
+});
+
+execFileSync.exec('git add *', (error) => {
+	if (error) {
+	  console.error(`exec error in add: ${error}`);
+	  return;
+	}
+	execFileSync.exec('git commit -m "Changing store number to: ' + myArgs[0], (error) => {
+		if (error) {
+		  console.error(`exec error in commit: ${error}`);
+		  return;
+		}
+		execFileSync.exec('git push', (error) => {
+			if (error) {
+			  console.error(`exec error in push: ${error}`);
+			  return;
+			}
+		  });
+	  });
+  });
+
+function modifyFile(currentFileName) {
+	fs.readFile(currentFileName, (err, data) => {
 		if (err) throw err;
 		var text = data.toString();
-		var index = data.indexOf('<label class="col-form-label" style="font-size: 200px; display: block; text-align: center; color: #');
-		index = index + 102;
-		var number = text.substring(index, index + 2);
-		var closing = number.indexOf('<');
-		number = closing != -1 ? number.substring(0, closing) : number;
-		console.log('La ficha para ' + myArgs[0] + ' es: ' + number);
+		var index = text.indexOf('value"');
+		index = index + 9;
+		text = text.substring(0, index) + myArgs[0] + text.substring(index + 1, text.length);
+		fs.writeFile(currentFileName, text, function (error) {
+			if (error) { 
+				console.error(error); 
+			}
+		});
 	  });
 }
+
