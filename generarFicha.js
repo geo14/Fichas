@@ -54,8 +54,8 @@ function getPositions() {
 	fs.readFile(fileName, (err, data) => {
 		if (err) throw err;
 		var text = data.toString();
-		var index = data.indexOf('<label class="col-form-label" style="font-size: 200px; display: block; text-align: center; color: #');
-		index = index + 102;
+		var index = text.indexOf('<label class="col-form-label" style="font-size: 200px; display: block; text-align: center; color: #');
+		index = text.indexOf('>', index) + 1;
 		var number = text.substring(index, index + 2);
 		var closing = number.indexOf('<');
 		number = closing != -1 ? number.substring(0, closing) : number;
