@@ -38,7 +38,7 @@ newman.run({
 			}
 		} else if(args.request.url.path[0].includes('VerificaIngreso') && args.response.responseSize < 5000) {
 			console.error('Error en login');
-			//process.exit();
+			process.exit();
 		}
 	}
 }).on('done', function (error, args) {
