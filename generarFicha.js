@@ -3,6 +3,7 @@ const newman = require('./npm/node_modules/newman'),
 	  fs = require('fs');
 
 var myArgs = process.argv.slice(2);
+
 let today = Date.now();
 let todayDate = new Date(today);
 var finalDate = todayDate.getDate() + '_' + (todayDate.getMonth() + 1);
@@ -36,8 +37,8 @@ newman.run({
 					break;
 				}
 			}
-		} else if(args.request.url.path[0].includes('VerificaIngreso') && args.response.responseSize < 5000) {
-			console.error('Error en login');
+		} else if(args.request.url.path[0].includes('VerificaIngreso') && args.response.responseSize < 4200) {
+			console.log('Error en login');
 			process.exit();
 		}
 	}
@@ -54,11 +55,10 @@ function getPositions() {
 	fs.readFile(fileName, (err, data) => {
 		if (err) throw err;
 		var text = data.toString();
-		var index = text.indexOf('<label class="col-form-label" style="font-size: 200px; display: block; text-align: center; color: #');
-		index = text.indexOf('>', index) + 1;
-		var number = text.substring(index, index + 2);
-		var closing = number.indexOf('<');
-		number = closing != -1 ? number.substring(0, closing) : number;
-		console.log('La ficha para ' + myArgs[0] + ' es: ' + number);
+		var index = text.indexOf('ReenvioEmailFicha.php?Valor=');
+		index = text.indexOf('=', index) + 1;
+		var index2 = text.indexOf('\'', index);
+		var number = text.substring(index, index2);
+		console.log('Exito revisar correo, el valor para ' + myArgs[0] + ' es: ' + number);
 	  });
 }
