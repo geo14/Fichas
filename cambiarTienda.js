@@ -22,7 +22,7 @@ execFileSync.exec('git add *', (error, stdout) => {
 		return;
 	}
 	console.log(stdout);
-	execFileSync.exec('git commit -m "Changing store number to: ' + myArgs[0], (error, stdout) => {
+	execFileSync.exec('git commit -m "Changing store number to: ' + myArgs[0] + '"', (error, stdout) => {
 		if (error) {
 			console.error(`exec error in commit: ${error}`);
 			return;
