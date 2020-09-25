@@ -38,7 +38,7 @@
 		{
 			"id": "0bf7464f-982d-4651-9a57-bfc344c3b8bf",
 			"name": "login",
-			"url": "https://www.fichascr.com/VerificaIngreso.php",
+			"url": "https://remates.solitcr.com/VerificaIngreso.php",
 			"description": "",
 			"data": [
 				{
@@ -71,7 +71,7 @@
 		{
 			"id": "a711e466-967c-4da0-b689-0c275cd22263",
 			"name": "generarFicha",
-			"url": "https://www.fichascr.com/GeneraFichas.php",
+			"url": "https://remates.solitcr.com/GeneraFichas.php",
 			"description": "",
 			"data": null,
 			"dataOptions": null,

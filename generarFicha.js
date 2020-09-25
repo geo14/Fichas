@@ -55,10 +55,9 @@ function getPositions() {
 	fs.readFile(fileName, (err, data) => {
 		if (err) throw err;
 		var text = data.toString();
-		var index = text.indexOf('ReenvioEmailFicha.php?Valor=');
-		index = text.indexOf('=', index) + 1;
-		var index2 = text.indexOf('\'', index);
-		var number = text.substring(index, index2);
+		var index = text.indexOf('Ficha No. ');
+		var index2 = text.indexOf(')', index);
+		var number = text.substring(index + 10, index2);
 		console.log('Exito revisar correo, el valor para ' + myArgs[0] + ' es: ' + number);
 	  });
 }
