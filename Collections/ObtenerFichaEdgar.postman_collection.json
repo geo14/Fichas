@@ -38,7 +38,7 @@
 		{
 			"id": "0bf7464f-982d-4651-9a57-bfc344c3b8bf",
 			"name": "login",
-			"url": "https://remates.solitcr.com/VerificaIngreso.php",
+			"url": "fichascr.com/VerificaIngreso.php",
 			"description": "",
 			"data": [
 				{
@@ -71,7 +71,7 @@
 		{
 			"id": "a711e466-967c-4da0-b689-0c275cd22263",
 			"name": "generarFicha",
-			"url": "https://remates.solitcr.com/GeneraFichas.php",
+			"url": "fichascr.com/GeneraFichas.php",
 			"description": "",
 			"data": null,
 			"dataOptions": null,
@@ -89,7 +89,7 @@
 		{
 			"id": "d69002b1-94dc-4017-b3eb-5f220fc06756",
 			"name": "asignarTienda",
-			"url": "https://www.fichascr.com/GeneradorFichas.php?CodTienda={{tienda}}",
+			"url": "fichascr.com/GeneradorFichas.php?CodTienda={{tienda}}",
 			"description": "",
 			"data": null,
 			"dataOptions": null,
