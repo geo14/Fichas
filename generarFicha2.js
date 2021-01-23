@@ -28,7 +28,7 @@ newman.run({
 		});	
 		if(args.request.url.path[0].includes('GeneradorFichas')) {
 			var n = 1;
-			while(n != 0) {
+			while(n != 59) {
 				let ts = Date.now();
 				let date_ob = new Date(ts);
 				//var n = date_ob.getMinutes();
