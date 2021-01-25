@@ -18,8 +18,10 @@ while True:
     print("Esperando para ingresar... ", seconds)
     if seconds == 0:
         response = session.post('https://www.fichascr.com/VerificaIngreso.php', loginData)
-        print(len(response.content))
-        if len(response.content) < 4200:
+        #print(len(response.content))
+        if len(response.content) > 4200:
             response = session.get('https://www.fichascr.com/GeneraFichas.php')
             print(response.text)
+        else: 
+            print('Error en login')
         break
