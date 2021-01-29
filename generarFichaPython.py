@@ -22,4 +22,6 @@ while True:
         if len(response.content) > 4200:
             response = session.get('https://www.fichascr.com/GeneraFichas.php')
             print(response.text)
+        else: 
+            print('Error en login')
         break
